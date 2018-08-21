@@ -1,0 +1,17 @@
+version: '3'
+services:
+    urlservice:
+        image: "darshansundaresh/urllookupservice"
+        environment:
+            - redis.servername=redis
+            - redis.serverport=6379
+        ports:
+            - "8080:8080"
+        links:
+            - redis
+        depends_on:
+            - redis
+            
+    redis: 
+        image: redis
+        hostname: redis
