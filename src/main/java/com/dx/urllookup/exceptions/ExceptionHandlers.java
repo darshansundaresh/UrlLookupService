@@ -12,6 +12,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ExceptionHandlers {
 	private Logger log = LoggerFactory.getLogger(ExceptionHandlers.class);
 	
+	@ExceptionHandler(InvalidUrlException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    public ErrorResponse handleInvalidUrlException(final InvalidUrlException ex) {
+        log.error("Invalid URL passed");
+        return new ErrorResponse("INVALID_URL", "You must pass a valid URL");
+    }
+	
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	@ResponseBody
     public ErrorResponse handleUserNotFoundException(final Throwable ex) {

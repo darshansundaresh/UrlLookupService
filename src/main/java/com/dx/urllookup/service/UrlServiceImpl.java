@@ -11,18 +11,32 @@ import com.dx.urllookup.utils.UrlUtils;
 @Service
 public class UrlServiceImpl implements UrlService{
 
-	@Autowired
-	UrlUtils urlUtils;
 	
-	@Autowired
+	private UrlUtils urlUtils;
 	private RedisTemplate<String, Object> redisTemplate;
+	private  String verifyApiBasePath;
+	private  String addApiBasePath;
 	
+	@Autowired
+	public void setUrlUtils(UrlUtils urlUtils) {
+		this.urlUtils = urlUtils;
+	}
+	
+	@Autowired
+	public void setRedisTemplate(RedisTemplate<String, Object> redisTemplate) {
+		this.redisTemplate = redisTemplate;
+	}
+
 	@Value("${URL_LOOKUP_SERVICE_BASE_PATH}")
-	public  String verifyApiBasePath;
-	
+	public void setVerifyApiBasePath(String verifyApiBasePath) {
+		this.verifyApiBasePath = verifyApiBasePath;
+	}
+
 	@Value("${URL_ADD_SERVICE_BASE_PATH}")
-	public  String addApiBasePath;
-	
+	public void setAddApiBasePath(String addApiBasePath) {
+		this.addApiBasePath = addApiBasePath;
+	}
+
 	@Override
 	public SiteInfo verifySite(String url) {
 		String cleanedUrl=urlUtils.normalizeUrl(url,verifyApiBasePath);
