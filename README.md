@@ -3,7 +3,7 @@
 This application exposes an API to lookup if a URL is malicious.
 The project is built in Java, Spring Boot and uses Redis as the datastore.
 
-##Usage 
+## Usage 
 
 To check if url is malicious
 GET /urlinfo/1/{URL to verify}
@@ -27,6 +27,8 @@ response with
 ```
     {"fullUrl":"hjaoopoa.top/admin.php?f=1.gif","isMalicious":"true"}% 
 ```
+---
+## Running and Deploying 
 
 ### Instructions to run using Docker Compose
 ```
