@@ -2,6 +2,7 @@
 
 This application exposes an API to lookup if a URL is malicious.
 The project is built in Java, Spring Boot and uses Redis as the datastore.
+The application is stateless and hence can be scaled to n number of instances behind a loadbalancer(eg. see kubernetes deployment) . The Redis datastore can also be scaled to create a cluster of several nodes.
 
 ## Usage 
 
