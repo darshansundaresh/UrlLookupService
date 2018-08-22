@@ -2,26 +2,18 @@ package com.dx.urllookup;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
-
 import com.dx.urllookup.domain.SiteInfo;
 import com.dx.urllookup.exceptions.InvalidUrlException;
-import com.dx.urllookup.service.UrlService;
 import com.dx.urllookup.service.UrlServiceImpl;
 import com.dx.urllookup.utils.UrlUtils;
 
