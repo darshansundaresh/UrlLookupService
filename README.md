@@ -3,6 +3,31 @@
 This application exposes an API to lookup if a URL is malicious.
 The project is built in Java, Spring Boot and uses Redis as the datastore.
 
+##Usage 
+
+To check if url is malicious
+GET /urlinfo/1/{URL to verify}
+eg.
+```
+    $ curl localhost:8080/urlinfo/1/hjaoopoa.top%2Fadmin.php%3Ff%3D1.gif
+```
+returns 
+```
+    {"fullUrl":"hjaoopoa.top/admin.php?f=1.gif","isMalicious":"true"}% 
+```
+
+To add a URL to the malicious list
+POST /urladd/1/{malicious URL}
+
+eg.
+```
+    $ curl -X POST localhost:8080/urladd/1/www.hjaoopoa.top%2Fadmin.php%3Ff%3D1.gif
+```
+response with
+```
+    {"fullUrl":"hjaoopoa.top/admin.php?f=1.gif","isMalicious":"true"}% 
+```
+
 ### Instructions to run using Docker Compose
 ```
   $ ./mvnw install dockerfile:build
